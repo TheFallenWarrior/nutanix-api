@@ -24,7 +24,7 @@ def getExportVmUrl(uuid: str):
 def getExportVmPayload(vmName: str):
 	now = datetime.now()
 	today = now.strftime("%d-%m-%Y")
-	return '{"name":'+str+today+',"disk_file_format":"vmdk"}'
+	return '{"name":'+vmName+today+',"disk_file_format":"vmdk"}'
 
 def main():
 	with open("api_basic_auth_token.txt", 'r') as f:
