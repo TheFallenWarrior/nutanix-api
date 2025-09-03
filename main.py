@@ -9,12 +9,15 @@ baseUrl = "https://172.17.200.70:9440/api/nutanix/v3"
 
 listVmsUrl = baseUrl+"/vms/list"
 
-# 'sort_attribute' parece não funcionar
 listVmsPayload =  """{
 	"kind": "vm",
 	"length": 200,
 	"offset": 0
 }"""
+
+# Usado para ordenar a lista de VMs por nome
+def vmListSort(n):
+	return str.lower(n['name'])
 
 def getExportVmUrl(uuid: str):
 	return f"{baseUrl}/vms/{uuid}/export"
@@ -24,20 +27,20 @@ def getExportVmPayload(vmName: str):
 	today = now.strftime("%d-%m-%Y")
 	return '{"name":'+vmName+today+',"disk_file_format":"vmdk"}'
 
-def vmListSort(n):
-	return str.lower(n['name'])
+def getHeader(token: str, reqType="POST"):
+	hdr = {
+		"Accept": "application/json",
+		"Authorization": f"Basic {token}"
+	}
+	if(reqType == "POST"): hdr.update({"Content-Type": "application/json"})
 
-def main():
+	return hdr
+
+def getVmList():
 	with open("api_basic_auth_token.txt", 'r') as f:
 		token = f.read()
-	
-	headers = {
-		"Accept": "application/json",
-		"Authorization": f"Basic {token}",
-		"Content-Type": "application/json"
-	}
 
-	response = requests.request("post", listVmsUrl, data=listVmsPayload, headers=headers, verify=False)
+	response = requests.request("post", listVmsUrl, data=listVmsPayload, headers=getHeader(token), verify=False)
 	if(response.status_code != 200):
 		print(f"Error: API returned status code {response.status_code}")
 		print(response.text)
@@ -51,6 +54,11 @@ def main():
 	
 	del vmListRaw
 	vmList.sort(key = vmListSort)
+
+	return vmList
+
+def main():
+	vmList = getVmList()
 
 	for vm in vmList:
 		print(str(vm))
