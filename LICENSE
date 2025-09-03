@@ -1,0 +1,44 @@
+SOURCE-REVIEW LICENSE
+
+PREAMBLE
+This Source-Review License (the "License") grants limited permissions to use, review, and compile the source code of the software (the "Software"). By using, copying, or modifying the Software, you agree to the terms of this License. If you do not agree to these terms, you may not use the Software.
+
+
+1. GRANT OF RIGHTS
+Subject to the terms and conditions of this License, the licensor grants you a non-exclusive, non-transferable, non-sublicensable, limited license to:
+
+   a. Code Review: Access and review the source code of the Software for the purpose of understanding its functionality, structure, and design.
+   b. Compilation: Compile the source code into binary form for personal use or educational purposes.
+   c. Education: Use the source code for educational purposes, including teaching, learning, and academic research.
+
+
+2. RESTRICTIONS
+The following restrictions apply to your use of the Software:
+
+   a. No Distribution: You may not distribute, share, or make available any part of the Software, modified or not, whether in source code or compiled form, under any circumstances.
+   b. No Sublicensing: You may not sublicense, transfer, or assign any rights granted under this License to any third party.
+   c. No Commercial Use: You may not use the Software or any derivative works for commercial purposes, including but not limited to selling, licensing, or monetizing the Software or its outputs.
+
+
+3. OWNERSHIP
+This License does not grant you any rights to patents, trademarks, or other intellectual property belonging to the licensor or any third parties.
+
+
+4. TERMINATION
+This License terminates automatically if you breach any of its terms. Upon termination, you must cease all use of the Software and destroy all copies of the source code and any compiled binaries in your possession.
+
+
+5. DISCLAIMER OF WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF THE SOFTWARE.
+
+
+6. LIMITATION OF LIABILITY
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR USE, ARISING OUT OF OR IN CONNECTION WITH THIS LICENSE OR THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+
+7. ENTIRE AGREEMENT
+This License constitutes the entire agreement between you and the licensor regarding the Software and supersedes all prior or contemporaneous understandings, agreements, or representations.
+
+
+8. SEVERABILITY
+If any provision of this License is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
