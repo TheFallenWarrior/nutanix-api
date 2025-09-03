@@ -36,7 +36,7 @@ def main():
 		"Content-Type": "application/json"
 	}
 
-	response = requests.request("post", listVmsUrl, data=listVmsUrl, headers=headers, verify=False)
+	response = requests.request("post", listVmsUrl, data=listVmsPayload, headers=headers, verify=False)
 	if(response.status_code != 200):
 		print(f"Error: API returned status code {response.status_code}")
 		print(response.text)
