@@ -12,9 +12,7 @@ listVmsUrl = baseUrl+"/vms/list"
 # 'sort_attribute' parece não funcionar
 listVmsPayload =  """{
 	"kind": "vm",
-	"length": 20,
-	"sort_attribute": ".",
-	"sort_order": "ASCENDING",
+	"length": 200,
 	"offset": 0
 }"""
 
@@ -25,6 +23,9 @@ def getExportVmPayload(vmName: str):
 	now = datetime.now()
 	today = now.strftime("%d-%m-%Y")
 	return '{"name":'+vmName+today+',"disk_file_format":"vmdk"}'
+
+def vmListSort(n):
+	return str.lower(n['name'])
 
 def main():
 	with open("api_basic_auth_token.txt", 'r') as f:
@@ -42,10 +43,17 @@ def main():
 		print(response.text)
 		exit(1)
 	
-	vmlist = json.loads(response.text)
+	vmListRaw = json.loads(response.text)
+	vmList = []
 
-	for vm in vmlist["entities"]:
-		print(f"{vm['metadata']['uuid']}:'{vm['status']['name']}'")
+	for vm in vmListRaw["entities"]:
+		vmList.append({"uuid": vm['metadata']['uuid'], "name": vm['status']['name']})
+	
+	del vmListRaw
+	vmList.sort(key = vmListSort)
+
+	for vm in vmList:
+		print(str(vm))
 
 	#print(response.text)
 
