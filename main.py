@@ -27,6 +27,7 @@ def getExportVmPayload(vmName: str):
 	today = now.strftime("%d-%m-%Y")
 	return '{"name":'+vmName+today+',"disk_file_format":"vmdk"}'
 
+# Retorna um header de requisição HTTP para usar nas chamadas de API 
 def getHeader(token: str, reqType="POST"):
 	hdr = {
 		"Accept": "application/json",
@@ -36,6 +37,7 @@ def getHeader(token: str, reqType="POST"):
 
 	return hdr
 
+# Retorna uma lista das VMs com o uuid e o nome da VM 
 def getVmList():
 	with open("api_basic_auth_token.txt", 'r') as f:
 		token = f.read()
