@@ -52,7 +52,12 @@ def getVmList():
 	vmList = []
 
 	for vm in vmListRaw["entities"]:
-		vmList.append({"uuid": vm['metadata']['uuid'], "name": vm['status']['name']})
+		try:
+			uuid = vm['metadata']['uuid']
+			name = vm['status']['name']
+			vmList.append({"uuid": uuid, "name": name})
+		except KeyError as e:
+			print(f"Warning: Skipping VM due to missing key: {e}")
 	
 	del vmListRaw
 	vmList.sort(key = vmListSort)
