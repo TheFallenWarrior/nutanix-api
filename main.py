@@ -25,7 +25,7 @@ def getExportVmUrl(uuid: str):
 def getExportVmPayload(vmName: str):
 	now = datetime.now()
 	today = now.strftime("%d-%m-%Y")
-	return '{"name":'+vmName+today+',"disk_file_format":"vmdk"}'
+	return json.dumps({"name": vmName + today, "disk_file_format": "vmdk"})
 
 # Retorna um header de requisição HTTP para usar nas chamadas de API 
 def getHeader(token: str, reqType="POST"):
