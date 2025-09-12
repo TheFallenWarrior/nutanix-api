@@ -42,7 +42,7 @@ def getVmList():
 	with open("api_basic_auth_token.txt", 'r') as f:
 		token = f.read()
 
-	response = requests.request("post", listVmsUrl, data=listVmsPayload, headers=getHeader(token), verify=False)
+	response = requests.request("POST", listVmsUrl, data=listVmsPayload, headers=getHeader(token), verify=False)
 	if(response.status_code != 200):
 		print(f"Error: API returned status code {response.status_code}")
 		print(response.text)
