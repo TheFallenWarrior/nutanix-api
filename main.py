@@ -38,7 +38,7 @@ def getHeader(token: str, reqType="POST"):
 	return hdr
 
 # Retorna uma lista das VMs com o uuid e o nome da VM 
-def getVmList() -> list[dict[str, str]]:
+def getVmList():
 	with open("api_basic_auth_token.txt", 'r') as f:
 		token = f.read()
 
@@ -51,6 +51,8 @@ def getVmList() -> list[dict[str, str]]:
 	vmListRaw = json.loads(response.text)
 	vmList = []
 
+	with open("next_vms_list.txt", "+w") as f: pass
+
 	for vm in vmListRaw["entities"]:
 		try:
 			uuid = vm['metadata']['uuid']
@@ -59,18 +61,13 @@ def getVmList() -> list[dict[str, str]]:
 		except KeyError as e:
 			print(f"Warning: Skipping VM due to missing key: {e}")
 	
-	del vmListRaw
 	vmList.sort(key = vmListSort)
-
-	return vmList
+	for vm in vmList:
+		with open("next_vms_list.txt", "a") as f:
+			f.write(f"{vm["uuid"]},{vm["name"]}\n")
 
 def main():
-	vmList = getVmList()
-
-	for vm in vmList:
-		print(str(vm))
-
-	#print(response.text)
+	getVmList()
 
 if __name__ == "__main__":
 	main()
