@@ -37,7 +37,7 @@ def getHeader(token: str, reqType="POST"):
 
 	return hdr
 
-# Retorna uma lista das VMs com o uuid e o nome da VM 
+# Cria um arquivo next_vms_list.txt com os nomes e UUID das VMs
 def getVmList():
 	with open("api_basic_auth_token.txt", 'r') as f:
 		token = f.read()
